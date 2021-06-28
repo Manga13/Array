@@ -1,21 +1,28 @@
-#include<stdio.h>                                                                                                                       #include<stdio.h>
+
+#include<stdio.h>
 #include<stdlib.h>
-        int main()
+int main()
+{
+        int n,*arr,i,min,max;
+        printf("Enter n value\n");
+        scanf("%d",&n);
+        arr=(int *)malloc(n*sizeof(int));
+        printf("Array elements\n");
+        for(i=0;i<n;i++)
+                scanf("%d",&arr[i]);
+        min=max=arr[0];
+        for(i=1;i<n;i++)
         {
-                int n,i,*arr,sum=0;
-                printf("Enter number of elements :\n");
-                scanf("%d",&n);
-                arr=(int*)malloc(n*sizeof(int));
-                if(arr==NULL)
+                if(arr[i]>max)
                 {
-                                printf("memory allocation failed\n");
-                                exit(0);
-                        }
-                printf("Array Elements\n");
-                for(i=0;i<n;i++)
+
+                        max=arr[i];
+                }
+                if(arr[i]<min)
                 {
-                                scanf("%d",&arr[i]);
-                               sum=sum+arr[i];
-                        }
-                printf("Sum Of Array Elements %d\n",sum);
+                        min=arr[i];
+                }
         }
+        printf("Min : %d\n",min);
+        printf("Max :%d\n",max);
+}
