@@ -1,14 +1,21 @@
-
-#include<stdio.h>
+#include<stdio.h>                                                                                                                       #include<stdio.h>
 #include<stdlib.h>
-int main()
-{
-        int arr[]={1,2,3,4,5,5};
-        int size=*(&arr+1)-arr;
-        /* &arr -> points the address of same array (ex:1000)
-          &arr+1 -> points the address after end of the array
-          *(&arr+1) -> points the last element array in array
-          *(&arr+1)-arr ->subtract with last element address with first element address */
-
-        printf("Array size in bytes %d\n",size*4);
-}
+        int main()
+        {
+                int n,i,*arr,sum=0;
+                printf("Enter number of elements :\n");
+                scanf("%d",&n);
+                arr=(int*)malloc(n*sizeof(int));
+                if(arr==NULL)
+                {
+                                printf("memory allocation failed\n");
+                                exit(0);
+                        }
+                printf("Array Elements\n");
+                for(i=0;i<n;i++)
+                {
+                                scanf("%d",&arr[i]);
+                               sum=sum+arr[i];
+                        }
+                printf("Sum Of Array Elements %d\n",sum);
+        }
